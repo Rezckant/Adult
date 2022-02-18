@@ -115,18 +115,6 @@ print("SVM: ", score)
 new_row = {"Model": "SVM", "Accuracy Score": score}
 models = models.append(new_row, ignore_index=True)
 
-# -------------------- Kernel SVM --------------------
-from sklearn.svm import SVC
-k_svm = SVC(kernel = "rbf", random_state = 0)
-k_svm.fit(X_train, y_train)
-predictions = k_svm.predict(X_test)
-
-score = accuracy_score(y_test, predictions)
-print("Kernel SVM: ", score)
-
-new_row = {"Model": "KernelSVM", "Accuracy Score": score}
-models = models.append(new_row, ignore_index=True)
-
 # -------------------- Naive bayes --------------------
 from sklearn.naive_bayes import GaussianNB
 nb = GaussianNB()
