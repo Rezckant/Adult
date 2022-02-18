@@ -1,3 +1,5 @@
+# Codigo escrito en Spyder
+# Sin uso de tecnicas para optimizacion (Grid Search, K-fold cross validation)
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -170,4 +172,4 @@ models.sort_values(by="Accuracy Score", ascending=False)
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, predictions)
 
-# Best model in this DataSet: Random Forest Accuracy 0.845 
+# Best model in this DataSet: Random Forest, Accuracy 0.84 
