@@ -1,5 +1,6 @@
 # Codigo escrito en Spyder
 # Sin uso de tecnicas para optimizacion (Grid Search, K-fold cross validation)
+# Sin uso de XGBoost
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -9,13 +10,13 @@ import seaborn as sns
 dataset = pd.read_csv('adult.data')
 final_test = pd.read_csv('adult.test')
 
-# ANalysis
+# Analysis
 sns.heatmap(data=dataset.corr(),cmap="YlGnBu", annot=True ,linewidths=0.2, linecolor='white')
 features = dataset.columns.values
 for f in features :
     print(f,': ',dataset[f].unique())
     print()
-# ? value in State-gov implica que hay valores desconocidos 
+# ? value in State-gov implica que hay valores desconocidos (na)
 # ? value in Adm-clerical implica que hay valores desconocidos 
 
 print(dataset.isna().sum())
@@ -62,7 +63,7 @@ X[:, 13] = le_x.fit_transform(X[:, 13])
 y = le_x.fit_transform(y)
 
 
-# Dividir el data set en conjunto de entrenamiento y conjunto de testing
+# Dividir el dataset en conjunto de entrenamiento y conjunto de testing
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
 
@@ -156,7 +157,7 @@ models.sort_values(by="Accuracy Score", ascending=False)
 
 
 
-# Elaborar una matriz de confusión
+# Matriz de confusión
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, predictions)
 
